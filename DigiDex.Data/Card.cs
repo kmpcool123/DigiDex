@@ -8,5 +8,6 @@ namespace DigiDex.Data
 {
     public class Card
     {
+        public int Test { get; set; }
     }
 }
