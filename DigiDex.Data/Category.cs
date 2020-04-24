@@ -8,5 +8,6 @@ namespace DigiDex.Data
 {
     public class Category
     {
+        public string HELLOWORLD { get; set; }
     }
 }
