@@ -1,0 +1,15 @@
+C:\Eleven-Fifty\DigiDex\DigiDex\DigiDex.Services\bin\Debug\DigiDex.Services.dll.config
+C:\Eleven-Fifty\DigiDex\DigiDex\DigiDex.Services\bin\Debug\DigiDex.Services.dll
+C:\Eleven-Fifty\DigiDex\DigiDex\DigiDex.Services\bin\Debug\DigiDex.Services.pdb
+C:\Eleven-Fifty\DigiDex\DigiDex\DigiDex.Services\bin\Debug\EntityFramework.dll
+C:\Eleven-Fifty\DigiDex\DigiDex\DigiDex.Services\bin\Debug\EntityFramework.SqlServer.dll
+C:\Eleven-Fifty\DigiDex\DigiDex\DigiDex.Services\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Eleven-Fifty\DigiDex\DigiDex\DigiDex.Services\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Eleven-Fifty\DigiDex\DigiDex\DigiDex.Services\bin\Debug\EntityFramework.xml
+C:\Eleven-Fifty\DigiDex\DigiDex\DigiDex.Services\bin\Debug\EntityFramework.SqlServer.xml
+C:\Eleven-Fifty\DigiDex\DigiDex\DigiDex.Services\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Eleven-Fifty\DigiDex\DigiDex\DigiDex.Services\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Eleven-Fifty\DigiDex\DigiDex\DigiDex.Services\obj\Debug\DigiDex.Services.csprojAssemblyReference.cache
+C:\Eleven-Fifty\DigiDex\DigiDex\DigiDex.Services\obj\Debug\DigiDex.Services.csproj.CopyComplete
+C:\Eleven-Fifty\DigiDex\DigiDex\DigiDex.Services\obj\Debug\DigiDex.Services.dll
+C:\Eleven-Fifty\DigiDex\DigiDex\DigiDex.Services\obj\Debug\DigiDex.Services.pdb
