@@ -8,5 +8,6 @@ namespace DigiDex.Data
 {
     public class Deck
     {
+        public int deckId { get; set; }
     }
 }
