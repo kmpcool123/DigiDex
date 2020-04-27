@@ -9,5 +9,6 @@ namespace DigiDex.Data
     public class Category
     {
         public int CategoryId { get; set; }
+        public int CategoryTitle { get; set; }
     }
 }
