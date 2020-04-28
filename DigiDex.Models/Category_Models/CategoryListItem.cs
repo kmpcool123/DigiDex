@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DigiDex.Models.Category.Models
+namespace DigiDex.Models.Category_Models
 {
     public class CategoryListItem
     {
@@ -12,6 +12,7 @@ namespace DigiDex.Models.Category.Models
         public string CategoryTitle { get; set; }
         public DateTimeOffset CreatedUtc { get; set; }
 
-        test
+        
+        //test
     }
 }
