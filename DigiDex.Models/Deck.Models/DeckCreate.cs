@@ -1,30 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DigiDex.Data
+namespace DigiDex.Models.Deck.Models
 {
-    public class Deck
+    class DeckCreate
     {
-        [Key]
-        public int DeckId { get; set; }
-
         [Required]
+        [MinLength(1, ErrorMessage ="Deck must have a title.")]
+        [MaxLength(100, ErrorMessage ="Deck title is too long; please keep the title to less than 100 characters.")]
         public string DeckTitle { get; set; }
+
+        [MaxLength(800, ErrorMessage ="Deck description is too long; please keep description to less than 800 characters.")]
         public string DeckDescription { get; set; }
 
-        [ForeignKey("Category")]
         public int? CategoryId { get; set; }
-        public virtual Category Category { get; set; }
 
-        [Required]
-        public Guid UserId { get; set; }
-        [Required]
+        [Display(Name = "Created")]
         public DateTimeOffset CreatedUtc { get; set; }
+        [Display(Name = "Modified")]
         public DateTimeOffset? ModifiedUtc { get; set; }
+
     }
 }

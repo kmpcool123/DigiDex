@@ -5,18 +5,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DigiDex.Data
+namespace DigiDex.Models
 {
-    public class Category
+    public class DeckListItem
     {
-        [Key]
+        public int DeckId { get; set; }
+        public string DeckTitle { get; set; }
         public int CategoryId { get; set; }
-        [Required]
-        public string CategoryTitle { get; set; }
-        [Required]
-        public Guid UserId { get; set; }
-        [Required]
+        [Display(Name = "Created")]
         public DateTimeOffset CreatedUtc { get; set; }
-        public DateTimeOffset? ModifiedUtc { get; set; }
     }
 }

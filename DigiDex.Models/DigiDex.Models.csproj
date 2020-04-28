@@ -54,11 +54,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Card.Models\CardCreate.cs" />
+    <Compile Include="Card.Models\CardDetail.cs" />
+    <Compile Include="Card.Models\CardEdit.cs" />
+    <Compile Include="Card.Models\CardListItem.cs" />
+    <Compile Include="Category_Models\CategoryCreate.cs" />
+    <Compile Include="Category_Models\CategoryEdit.cs" />
+    <Compile Include="Category_Models\CategoryListItem.cs" />
+    <Compile Include="Deck.Models\DeckCreate.cs" />
+    <Compile Include="Deck.Models\DeckDetail.cs" />
+    <Compile Include="Deck.Models\DeckEdit.cs" />
+    <Compile Include="Deck.Models\DeckListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DigiDex.Data\DigiDex.Data.csproj">
+      <Project>{5DF4CEA0-B22B-4F75-A91F-CE98C6B10E99}</Project>
+      <Name>DigiDex.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
