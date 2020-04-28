@@ -64,5 +64,11 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DigiDex.Data\DigiDex.Data.csproj">
+      <Project>{5DF4CEA0-B22B-4F75-A91F-CE98C6B10E99}</Project>
+      <Name>DigiDex.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

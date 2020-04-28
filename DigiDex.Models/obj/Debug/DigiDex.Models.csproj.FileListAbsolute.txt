@@ -28,3 +28,7 @@ C:\ElevenFiftyProjects\BlueBadge\DigiDex\DigiDex.Models\obj\Debug\DigiDex.Models
 C:\ElevenFiftyProjects\BlueBadge\DigiDex\DigiDex.Models\obj\Debug\DigiDex.Models.csproj.CopyComplete
 C:\ElevenFiftyProjects\BlueBadge\DigiDex\DigiDex.Models\obj\Debug\DigiDex.Models.dll
 C:\ElevenFiftyProjects\BlueBadge\DigiDex\DigiDex.Models\obj\Debug\DigiDex.Models.pdb
+C:\Eleven-Fifty\DigiDex\DigiDex\DigiDex.Models\obj\Debug\DigiDex.Models.csprojAssemblyReference.cache
+C:\Eleven-Fifty\DigiDex\DigiDex\DigiDex.Models\bin\Debug\DigiDex.Data.dll
+C:\Eleven-Fifty\DigiDex\DigiDex\DigiDex.Models\bin\Debug\DigiDex.Data.pdb
+C:\Eleven-Fifty\DigiDex\DigiDex\DigiDex.Models\bin\Debug\DigiDex.Data.dll.config

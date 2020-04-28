@@ -1,4 +1,5 @@
-﻿using DigiDex.Data;
+﻿
+using DigiDex.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
