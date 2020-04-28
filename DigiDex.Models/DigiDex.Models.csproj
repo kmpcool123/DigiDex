@@ -55,7 +55,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Category.Models\CategoryCreate.cs" />
-    <Compile Include="Category.Models\CategoryList.cs" />
+    <Compile Include="Category.Models\CategoryEdit.cs" />
+    <Compile Include="Category.Models\CategoryListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DigiDex.Models.Category.Models
 {
-    public class CategoryList
+    public class CategoryEdit
     {
         public int CategoryId { get; set; }
         public string CategoryTitle { get; set; }
