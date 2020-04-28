@@ -21,7 +21,7 @@ namespace DigiDex.Data
         public string CardNumber { get; set; }
         
 
-        public int? DeckId { get; set; }
+        public int DeckId { get; set; }
         public virtual Deck Deck { get; set; }
     }
 }
