@@ -74,6 +74,27 @@ namespace DigiDex.Services
             }
         }
 
+        public DeckDetail GetDeckByTitle(string name)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Decks
+                    .Single(e => e.DeckTitle == name && e.UserId == _userId);
+                return
+                    new DeckDetail
+                    {
+                        DeckId = entity.DeckId,
+                        Category = entity.Category,
+                        DeckTitle = entity.DeckTitle,
+                        DeckDescription = entity.DeckDescription,
+                        CreatedUtc = entity.CreatedUtc,
+                        ModifiedUtc = entity.ModifiedUtc
+                    };
+            }
+        }
+
         public bool UpdateDeck(DeckEdit Model)
         {
             using (var ctx = new ApplicationDbContext())

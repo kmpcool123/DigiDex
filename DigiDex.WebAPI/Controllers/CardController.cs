@@ -36,6 +36,12 @@ namespace DigiDex.WebAPI.Controllers
             var card = cardService.GetCardById(id);
             return Ok(card);
         }
+        public IHttpActionResult Get(string cardTitle)
+        {
+            CardService cardService = CreateCardService();
+            var card = cardService.GetCardByTitle(cardTitle);
+            return Ok(card);
+        }
         private CardService CreateCardService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
