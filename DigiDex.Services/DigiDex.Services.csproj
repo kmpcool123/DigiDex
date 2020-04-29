@@ -55,6 +55,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DeckService.cs" />
+    <Compile Include="CategoryService.cs" />
+    <Compile Include="CardService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -63,11 +65,11 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DigiDex.Data\DigiDex.Data.csproj">
-      <Project>{5df4cea0-b22b-4f75-a91f-ce98c6b10e99}</Project>
+      <Project>{5DF4CEA0-B22B-4F75-A91F-CE98C6B10E99}</Project>
       <Name>DigiDex.Data</Name>
     </ProjectReference>
     <ProjectReference Include="..\DigiDex.Models\DigiDex.Models.csproj">
-      <Project>{af5eda06-5af2-4782-bfb8-cb5b4b44941f}</Project>
+      <Project>{AF5EDA06-5AF2-4782-BFB8-CB5B4B44941F}</Project>
       <Name>DigiDex.Models</Name>
     </ProjectReference>
   </ItemGroup>
