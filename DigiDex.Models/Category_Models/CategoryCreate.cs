@@ -14,7 +14,5 @@ namespace DigiDex.Models.Category_Models
         [MaxLength(100, ErrorMessage = "Maximum Category Title length is 100 characters.")]
         [Display(Name ="Category Title")]
         public string CategoryTitle { get; set; }
-        
-        //TEST
     }
 }
