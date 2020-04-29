@@ -54,10 +54,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Card.Models\CardCreate.cs" />
-    <Compile Include="Card.Models\CardDetail.cs" />
-    <Compile Include="Card.Models\CardEdit.cs" />
-    <Compile Include="Card.Models\CardListItem.cs" />
+    <Compile Include="Card_Models\CardCreate.cs" />
+    <Compile Include="Card_Models\CardDetail.cs" />
+    <Compile Include="Card_Models\CardEdit.cs" />
+    <Compile Include="Card_Models\CardListItem.cs" />
     <Compile Include="Category_Models\CategoryCreate.cs" />
     <Compile Include="Category_Models\CategoryEdit.cs" />
     <Compile Include="Category_Models\CategoryListItem.cs" />
