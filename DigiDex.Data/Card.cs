@@ -23,5 +23,8 @@ namespace DigiDex.Data
 
         public int DeckId { get; set; }
         public virtual Deck Deck { get; set; }
+
+        public DateTimeOffset CreatedUtc { get; set; }
+        public DateTimeOffset? ModifiedUtc { get; set; }
     }
 }
