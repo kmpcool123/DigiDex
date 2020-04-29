@@ -25,7 +25,7 @@ namespace DigiDex.Services
                     DeckTitle = model.DeckTitle,
                     DeckDescription = model.DeckDescription,
                     CategoryId = model.CategoryId,
-                    CreatedUtc = model.CreatedUtc
+                    CreatedUtc = DateTimeOffset.Now
                 };
             using (var ctx = new ApplicationDbContext())
             {
