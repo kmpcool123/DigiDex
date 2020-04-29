@@ -61,6 +61,21 @@ namespace DigiDex.Services
             }
         }
 
+        public CategoryListItem GetCategoryByTitle(string categoryTitle)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx.Categories.Single(e => e.CategoryTitle == categoryTitle && e.UserId == _userId);
+                return new CategoryListItem
+                {
+                    CategoryId = entity.CategoryId,
+                    CategoryTitle = entity.CategoryTitle,
+                    CreatedUtc = entity.CreatedUtc,
+                    ModifiedUtc = entity.ModifiedUtc
+                };
+            }
+        }
+
         public bool UpdateCategory(CategoryEdit model)
         {
             using(var ctx = new ApplicationDbContext())
