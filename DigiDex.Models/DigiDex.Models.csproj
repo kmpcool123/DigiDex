@@ -61,10 +61,10 @@
     <Compile Include="Category_Models\CategoryCreate.cs" />
     <Compile Include="Category_Models\CategoryEdit.cs" />
     <Compile Include="Category_Models\CategoryListItem.cs" />
-    <Compile Include="Deck.Models\DeckCreate.cs" />
-    <Compile Include="Deck.Models\DeckDetail.cs" />
-    <Compile Include="Deck.Models\DeckEdit.cs" />
-    <Compile Include="Deck.Models\DeckListItem.cs" />
+    <Compile Include="Deck_Models\DeckCreate.cs" />
+    <Compile Include="Deck_Models\DeckDetail.cs" />
+    <Compile Include="Deck_Models\DeckEdit.cs" />
+    <Compile Include="Deck_Models\DeckListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
