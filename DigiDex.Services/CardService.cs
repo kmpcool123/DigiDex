@@ -76,6 +76,25 @@ namespace DigiDex.Services
 
             }
         }
+        public CardDetail GetCardByTitle(string cardTitle)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Cards
+                        .Single(e => e.CardTitle == cardTitle && e.UserId == _userId);
+                return
+                    new CardDetail
+                    {
+                        CardId = entity.CardId,
+                        CardTitle = entity.CardTitle,
+                        Description = entity.CardDescription,
+                        CreatedUtc = entity.CreatedUtc,
+                        ModifiedUtc = entity.ModifiedUtc
+                    };
+            }
+        }
         public bool UpdateCard(CardEdit model)
         {
             using (var ctx= new ApplicationDbContext())
