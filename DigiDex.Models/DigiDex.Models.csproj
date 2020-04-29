@@ -54,17 +54,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Card.Models\CardCreate.cs" />
-    <Compile Include="Card.Models\CardDetail.cs" />
-    <Compile Include="Card.Models\CardEdit.cs" />
-    <Compile Include="Card.Models\CardListItem.cs" />
+    <Compile Include="Card_Models\CardCreate.cs" />
+    <Compile Include="Card_Models\CardDetail.cs" />
+    <Compile Include="Card_Models\CardEdit.cs" />
+    <Compile Include="Card_Models\CardListItem.cs" />
     <Compile Include="Category_Models\CategoryCreate.cs" />
     <Compile Include="Category_Models\CategoryEdit.cs" />
     <Compile Include="Category_Models\CategoryListItem.cs" />
-    <Compile Include="Deck.Models\DeckCreate.cs" />
-    <Compile Include="Deck.Models\DeckDetail.cs" />
-    <Compile Include="Deck.Models\DeckEdit.cs" />
-    <Compile Include="Deck.Models\DeckListItem.cs" />
+    <Compile Include="Deck_Models\DeckCreate.cs" />
+    <Compile Include="Deck_Models\DeckDetail.cs" />
+    <Compile Include="Deck_Models\DeckEdit.cs" />
+    <Compile Include="Deck_Models\DeckListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
