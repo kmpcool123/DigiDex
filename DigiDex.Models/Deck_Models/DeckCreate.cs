@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DigiDex.Models.Deck.Models
+namespace DigiDex.Models.Deck_Models
 {
     class DeckCreate
     {
