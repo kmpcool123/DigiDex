@@ -11,8 +11,6 @@ namespace DigiDex.Models.Category_Models
         public int CategoryId { get; set; }
         public string CategoryTitle { get; set; }
         public DateTimeOffset CreatedUtc { get; set; }
-
-        
-        //test
+        public DateTimeOffset? ModifiedUtc { get; set; }
     }
 }
