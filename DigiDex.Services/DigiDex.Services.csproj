@@ -54,11 +54,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CardService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DigiDex.Data\DigiDex.Data.csproj">
+      <Project>{5DF4CEA0-B22B-4F75-A91F-CE98C6B10E99}</Project>
+      <Name>DigiDex.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DigiDex.Models\DigiDex.Models.csproj">
+      <Project>{AF5EDA06-5AF2-4782-BFB8-CB5B4B44941F}</Project>
+      <Name>DigiDex.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
