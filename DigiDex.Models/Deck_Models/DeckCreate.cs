@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DigiDex.Models.Deck_Models
 {
-    class DeckCreate
+    public class DeckCreate
     {
         [Required]
         [MinLength(1, ErrorMessage ="Deck must have a title.")]

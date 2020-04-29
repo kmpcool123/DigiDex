@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DigiDex.Models.Deck_Models
 {
-    class DeckEdit
+    public class DeckEdit
     {
         public int DeckId { get; set; }
         public string DeckTitle { get; set; }
