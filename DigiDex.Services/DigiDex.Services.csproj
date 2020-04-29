@@ -54,11 +54,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DeckService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DigiDex.Data\DigiDex.Data.csproj">
+      <Project>{5df4cea0-b22b-4f75-a91f-ce98c6b10e99}</Project>
+      <Name>DigiDex.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DigiDex.Models\DigiDex.Models.csproj">
+      <Project>{af5eda06-5af2-4782-bfb8-cb5b4b44941f}</Project>
+      <Name>DigiDex.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
