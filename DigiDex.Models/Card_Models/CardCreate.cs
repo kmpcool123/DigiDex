@@ -15,7 +15,8 @@ namespace DigiDex.Models.Card_Models
 
         public int? DeckId { get; set; }
         public string CardTitle { get; set; }
-        [MaxLength(1000)]
+        
+        
         public string CardDescription { get; set; }
         [Display(Name = "Created")]
         public DateTimeOffset CreatedUtc { get; set; }
