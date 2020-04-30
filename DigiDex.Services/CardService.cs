@@ -24,7 +24,8 @@ namespace DigiDex.Services
                     UserId = _userId,
                     CardTitle = model.CardTitle,
                     CardDescription = model.Description,
-                    CreatedUtc = DateTimeOffset.UtcNow
+                    CreatedUtc = DateTimeOffset.UtcNow,
+                    DeckId = model.DeckId
 
                 };
             using (var ctx = new ApplicationDbContext())
