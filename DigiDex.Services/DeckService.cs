@@ -95,16 +95,16 @@ namespace DigiDex.Services
             }
         }
 
-        public bool UpdateDeck(DeckEdit Model)
+        public bool UpdateDeck(DeckEdit model)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx.Decks
-                    .Single(e => e.DeckId == Model.DeckId && e.UserId == _userId);
+                    .Single(e => e.DeckId == model.DeckId && e.UserId == _userId);
 
-                entity.DeckTitle = Model.DeckTitle;
-                entity.DeckDescription = Model.DeckDescription;
+                entity.DeckTitle = model.DeckTitle;
+                entity.DeckDescription = model.DeckDescription;
                 entity.ModifiedUtc = DateTimeOffset.UtcNow;
 
                 return ctx.SaveChanges() == 1;
