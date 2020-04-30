@@ -46,6 +46,27 @@ namespace DigiDex.Services
                     {
                         DeckId = e.DeckId,
                         DeckTitle = e.DeckTitle,
+                        Category = e.Category.CategoryTitle,
+                        CreatedUtc = e.CreatedUtc
+                    }
+                    );
+                return query.ToArray();
+            }
+        }
+
+        public IEnumerable<DeckListItem> GetDecksByCategoryTitle(string categoryTitle)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query = ctx
+                    .Decks.Where(e => e.Category.CategoryTitle == categoryTitle && e.UserId == _userId)
+                    .Select(
+                    e =>
+                    new DeckListItem
+                    {
+                        DeckId = e.DeckId,
+                        DeckTitle = e.DeckTitle,
+                        Category = e.Category.CategoryTitle,
                         CreatedUtc = e.CreatedUtc
                     }
                     );
@@ -55,7 +76,7 @@ namespace DigiDex.Services
 
         public DeckDetail GetDeckById(int id)
         {
-            using (var ctx = new ApplicationDbContext())
+            using (var ctx = new ApplicationDbContext()) 
             {
                 var entity =
                     ctx
@@ -65,7 +86,8 @@ namespace DigiDex.Services
                     new DeckDetail
                     {
                         DeckId = entity.DeckId,
-                        Category = entity.Category,
+                        CategoryId = entity.Category.CategoryId,
+                        Category = entity.Category.CategoryTitle,
                         DeckTitle = entity.DeckTitle,
                         DeckDescription = entity.DeckDescription,
                         CreatedUtc = entity.CreatedUtc,
@@ -86,7 +108,8 @@ namespace DigiDex.Services
                     new DeckDetail
                     {
                         DeckId = entity.DeckId,
-                        Category = entity.Category,
+                        CategoryId = entity.Category.CategoryId,
+                        Category = entity.Category.CategoryTitle,
                         DeckTitle = entity.DeckTitle,
                         DeckDescription = entity.DeckDescription,
                         CreatedUtc = entity.CreatedUtc,
@@ -105,6 +128,7 @@ namespace DigiDex.Services
 
                 entity.DeckTitle = model.DeckTitle;
                 entity.DeckDescription = model.DeckDescription;
+                entity.CategoryId = model.CategoryId;
                 entity.ModifiedUtc = DateTimeOffset.UtcNow;
 
                 return ctx.SaveChanges() == 1;
