@@ -11,7 +11,7 @@ namespace DigiDex.Models.Deck_Models
     {
         public int DeckId { get; set; }
         public string DeckTitle { get; set; }
-        public int CategoryId { get; set; }
+        public string Category { get; set; }
         [Display(Name = "Created")]
         public DateTimeOffset CreatedUtc { get; set; }
     }

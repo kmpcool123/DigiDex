@@ -23,7 +23,7 @@ namespace DigiDex.Services
                 {
                     UserId = _userId,
                     CardTitle = model.CardTitle,
-                    CardDescription = model.Description,
+                    CardDescription = model.CardDescription,
                     CreatedUtc = DateTimeOffset.UtcNow,
                     DeckId = model.DeckId
 
@@ -68,8 +68,9 @@ namespace DigiDex.Services
                     new CardDetail
                     {
                         CardId = entity.CardId,
+                        Deck = entity.Deck,
                         CardTitle = entity.CardTitle,
-                        Description = entity.CardDescription,
+                        CardDescription = entity.CardDescription,
                         CreatedUtc = entity.CreatedUtc,
                         ModifiedUtc = entity.ModifiedUtc
 
@@ -89,8 +90,9 @@ namespace DigiDex.Services
                     new CardDetail
                     {
                         CardId = entity.CardId,
+                        Deck = entity.Deck,
                         CardTitle = entity.CardTitle,
-                        Description = entity.CardDescription,
+                        CardDescription = entity.CardDescription,
                         CreatedUtc = entity.CreatedUtc,
                         ModifiedUtc = entity.ModifiedUtc
                     };
@@ -106,7 +108,7 @@ namespace DigiDex.Services
                         .Single(e => e.CardId == model.CardId && e.UserId == _userId);
 
                 entity.CardTitle = model.CardTitle;
-                entity.CardDescription = model.Description;
+                entity.CardDescription = model.CardDescription;
                 entity.ModifiedUtc = DateTimeOffset.UtcNow;
 
                 return ctx.SaveChanges() == 1;
