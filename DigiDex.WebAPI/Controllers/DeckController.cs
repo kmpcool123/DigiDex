@@ -39,10 +39,17 @@ namespace DigiDex.WebAPI.Controllers
             return Ok(deck);
         }
 
-        public IHttpActionResult Get(string name)
+        public IHttpActionResult GetByCategory(string category)
         {
             DeckService deckService = CreateDeckService();
-            var deck = deckService.GetDeckByTitle(name);
+            var deck = deckService.GetDecksByCategoryTitle(category);
+            return Ok(deck);
+        }
+
+        public IHttpActionResult Get(string title)
+        {
+            DeckService deckService = CreateDeckService();
+            var deck = deckService.GetDeckByTitle(title);
 
             return Ok(deck);
         }
