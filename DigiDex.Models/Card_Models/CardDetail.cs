@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DigiDex.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -11,7 +12,10 @@ namespace DigiDex.Models.Card_Models
     {
         public int CardId { get; set; }
         public string CardTitle { get; set; }
-        public string Description { get; set; }
+        public string CardDescription { get; set; }
+        public int? DeckId { get; set; }
+        public Deck Deck { get; set; }
+
         [Display(Name = "Created")]
         public DateTimeOffset CreatedUtc { get; set; }
         [Display(Name = "Modified")]

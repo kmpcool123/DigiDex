@@ -10,7 +10,7 @@ namespace DigiDex.Models.Card_Models
     {
         public int CardId { get; set; }
         public string CardTitle { get; set; }
-        public string Description { get; set; }
+        public string CardDescription { get; set; }
 
         public string Deck { get; set; }
     }
