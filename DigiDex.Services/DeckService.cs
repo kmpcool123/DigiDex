@@ -82,11 +82,26 @@ namespace DigiDex.Services
                     ctx
                     .Decks
                     .Single(e => e.DeckId == id && e.UserId == _userId);
+                if(entity.CategoryId == null)
+                {
+                    string none = "None";
+                    return
+                        new DeckDetail
+                        {
+                            DeckId = entity.DeckId,
+                            CategoryId = 0,
+                            Category = none,
+                            DeckTitle = entity.DeckTitle,
+                            DeckDescription = entity.DeckDescription,
+                            CreatedUtc = entity.CreatedUtc,
+                            ModifiedUtc = entity.ModifiedUtc
+                        };
+                } else
                 return
                     new DeckDetail
                     {
                         DeckId = entity.DeckId,
-                        CategoryId = entity.Category.CategoryId,
+                        CategoryId = entity.CategoryId,
                         Category = entity.Category.CategoryTitle,
                         DeckTitle = entity.DeckTitle,
                         DeckDescription = entity.DeckDescription,
@@ -96,27 +111,65 @@ namespace DigiDex.Services
             }
         }
 
-        public DeckDetail GetDeckByTitle(string name)
+        public IEnumerable<DeckDetail> GetDeckByTitle(string title)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query = ctx
+                    .Decks.Where(e => e.DeckTitle == title && e.UserId == _userId)
+                    .Select(
+                    e =>
+                    new DeckDetail
+                    {
+                        DeckId = e.DeckId,
+                        DeckTitle = e.DeckTitle,
+                        DeckDescription = e.DeckDescription,
+                        Category = e.Category.CategoryTitle,
+                        CreatedUtc = e.CreatedUtc,
+                        ModifiedUtc = e.ModifiedUtc
+                    }
+                    );
+                return query.ToArray();
+            }
+        }
+
+        /*public DeckDetail GetDeckByTitle(string title)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
                     .Decks
-                    .Single(e => e.DeckTitle == name && e.UserId == _userId);
-                return
-                    new DeckDetail
-                    {
-                        DeckId = entity.DeckId,
-                        CategoryId = entity.Category.CategoryId,
-                        Category = entity.Category.CategoryTitle,
-                        DeckTitle = entity.DeckTitle,
-                        DeckDescription = entity.DeckDescription,
-                        CreatedUtc = entity.CreatedUtc,
-                        ModifiedUtc = entity.ModifiedUtc
-                    };
+                    .Single(e => e.DeckTitle == title && e.UserId == _userId);
+                if (entity.CategoryId == null)
+                {
+                    string none = "None";
+                    return
+                        new DeckDetail
+                        {
+                            DeckId = entity.DeckId,
+                            CategoryId = 0,
+                            Category = none,
+                            DeckTitle = entity.DeckTitle,
+                            DeckDescription = entity.DeckDescription,
+                            CreatedUtc = entity.CreatedUtc,
+                            ModifiedUtc = entity.ModifiedUtc
+                        };
+                }
+                else
+                    return
+                        new DeckDetail
+                        {
+                            DeckId = entity.DeckId,
+                            CategoryId = entity.CategoryId,
+                            Category = entity.Category.CategoryTitle,
+                            DeckTitle = entity.DeckTitle,
+                            DeckDescription = entity.DeckDescription,
+                            CreatedUtc = entity.CreatedUtc,
+                            ModifiedUtc = entity.ModifiedUtc
+                        };
             }
-        }
+        }*/
 
         public bool UpdateDeck(DeckEdit model)
         {

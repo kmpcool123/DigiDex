@@ -12,8 +12,11 @@ namespace DigiDex.Models.Deck_Models
     public class DeckDetail
     {
         public int DeckId { get; set; }
+        [Display(Name ="Title")]
         public string DeckTitle { get; set; }
+        [Display(Name ="Description")]
         public string DeckDescription { get; set; }
+
         public int? CategoryId { get; set; }
         public string Category { get; set; }
 
