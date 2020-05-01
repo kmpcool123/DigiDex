@@ -96,6 +96,10 @@
     <Compile Include="Migrations\202004301858353_addDeckId.Designer.cs">
       <DependentUpon>202004301858353_addDeckId.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202005011428061_PuttingCategory.cs" />
+    <Compile Include="Migrations\202005011428061_PuttingCategory.Designer.cs">
+      <DependentUpon>202005011428061_PuttingCategory.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -109,6 +113,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202004301858353_addDeckId.resx">
       <DependentUpon>202004301858353_addDeckId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005011428061_PuttingCategory.resx">
+      <DependentUpon>202005011428061_PuttingCategory.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
