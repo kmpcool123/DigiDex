@@ -12,9 +12,11 @@ namespace DigiDex.Models.Deck_Models
         [Required]
         [MinLength(1, ErrorMessage ="Deck must have a title.")]
         [MaxLength(100, ErrorMessage ="Deck title is too long; please keep the title to less than 100 characters.")]
+        [Display(Name ="Title")]
         public string DeckTitle { get; set; }
 
         [MaxLength(800, ErrorMessage ="Deck description is too long; please keep description to less than 800 characters.")]
+        [Display(Name ="Description")]
         public string DeckDescription { get; set; }
 
         public int? CategoryId { get; set; }

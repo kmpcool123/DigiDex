@@ -12,6 +12,10 @@ namespace DigiDex.Models.Card_Models
         public int CardId { get; set; }
         public string CardTitle { get; set; }
         public int DeckId { get; set; } 
+        public string DeckTitle { get; set; }
+        public int CategoryId { get; set; }
+
+        public string CategoryTitle { get; set; }
         [Display(Name = "Created")]
         public DateTimeOffset CreatedUtc { get; set; }
     }
