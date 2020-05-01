@@ -133,44 +133,6 @@ namespace DigiDex.Services
             }
         }
 
-        /*public DeckDetail GetDeckByTitle(string title)
-        {
-            using (var ctx = new ApplicationDbContext())
-            {
-                var entity =
-                    ctx
-                    .Decks
-                    .Single(e => e.DeckTitle == title && e.UserId == _userId);
-                if (entity.CategoryId == null)
-                {
-                    string none = "None";
-                    return
-                        new DeckDetail
-                        {
-                            DeckId = entity.DeckId,
-                            CategoryId = 0,
-                            Category = none,
-                            DeckTitle = entity.DeckTitle,
-                            DeckDescription = entity.DeckDescription,
-                            CreatedUtc = entity.CreatedUtc,
-                            ModifiedUtc = entity.ModifiedUtc
-                        };
-                }
-                else
-                    return
-                        new DeckDetail
-                        {
-                            DeckId = entity.DeckId,
-                            CategoryId = entity.CategoryId,
-                            Category = entity.Category.CategoryTitle,
-                            DeckTitle = entity.DeckTitle,
-                            DeckDescription = entity.DeckDescription,
-                            CreatedUtc = entity.CreatedUtc,
-                            ModifiedUtc = entity.ModifiedUtc
-                        };
-            }
-        }*/
-
         public bool UpdateDeck(DeckEdit model)
         {
             using (var ctx = new ApplicationDbContext())
