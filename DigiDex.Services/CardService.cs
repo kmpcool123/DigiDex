@@ -23,8 +23,9 @@ namespace DigiDex.Services
                 {
                     UserId = _userId,
                     CardTitle = model.CardTitle,
-                    CardDescription = model.Description,
-                    CreatedUtc = DateTimeOffset.UtcNow
+                    CardDescription = model.CardDescription,
+                    CreatedUtc = DateTimeOffset.UtcNow,
+                    DeckId = model.DeckId
 
                 };
             using (var ctx = new ApplicationDbContext())
@@ -67,8 +68,9 @@ namespace DigiDex.Services
                     new CardDetail
                     {
                         CardId = entity.CardId,
+                        Deck = entity.Deck,
                         CardTitle = entity.CardTitle,
-                        Description = entity.CardDescription,
+                        CardDescription = entity.CardDescription,
                         CreatedUtc = entity.CreatedUtc,
                         ModifiedUtc = entity.ModifiedUtc
 
@@ -88,11 +90,56 @@ namespace DigiDex.Services
                     new CardDetail
                     {
                         CardId = entity.CardId,
+                        Deck = entity.Deck,
                         CardTitle = entity.CardTitle,
-                        Description = entity.CardDescription,
+                        CardDescription = entity.CardDescription,
                         CreatedUtc = entity.CreatedUtc,
                         ModifiedUtc = entity.ModifiedUtc
                     };
+            }
+        }
+        public IEnumerable<CardListItem> GetCardsByCategoryTitle(string categoryTitle)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                        .Cards
+                        .Where(e => e.Category.CategoryTitle == categoryTitle && e.UserId == _userId)
+                        .Select(
+                            e =>
+                                new CardListItem
+                                {
+                                    CardId = e.CardId,
+                                    CardTitle = e.CardTitle,
+                                    CategoryTitle = e.Category.CategoryTitle,
+                                    DeckTitle = e.Deck.DeckTitle,
+                                    CreatedUtc = e.CreatedUtc
+                                }
+                               );
+                return query.ToArray();
+            }
+        }
+        public IEnumerable<CardListItem> GetCardsByDeckTitle(string deckTitle)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                        .Cards
+                        .Where(e => e.Deck.DeckTitle == deckTitle && e.UserId == _userId)
+                        .Select(
+                            e =>
+                                new CardListItem
+                                {
+                                    CardId = e.CardId,
+                                    CardTitle = e.CardTitle,
+                                    DeckTitle = e.Deck.DeckTitle,
+                                    CreatedUtc = e.CreatedUtc
+                                }
+                        );
+
+                return query.ToArray();
             }
         }
         public bool UpdateCard(CardEdit model)
@@ -105,7 +152,7 @@ namespace DigiDex.Services
                         .Single(e => e.CardId == model.CardId && e.UserId == _userId);
 
                 entity.CardTitle = model.CardTitle;
-                entity.CardDescription = model.Description;
+                entity.CardDescription = model.CardDescription;
                 entity.ModifiedUtc = DateTimeOffset.UtcNow;
 
                 return ctx.SaveChanges() == 1;
