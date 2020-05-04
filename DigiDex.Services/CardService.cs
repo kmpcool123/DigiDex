@@ -64,13 +64,30 @@ namespace DigiDex.Services
                     ctx
                         .Cards
                         .Single(e => e.CardId == id && e.UserId == _userId);
-                return
+                if (entity.DeckId == null)
+                {
+                    string none = "None";
+                    return
+                        new CardDetail
+                        {
+                            DeckId = entity.DeckId,
+                            CategoryTitle = entity.Category.CategoryTitle,
+                            DeckTitle = none,
+                            CardTitle = entity.CardTitle,
+                            CardDescription = entity.CardDescription,
+                            CreatedUtc = entity.CreatedUtc,
+                            ModifiedUtc = entity.ModifiedUtc
+                        };
+                }
+                else
+                    return
                     new CardDetail
                     {
                         CardId = entity.CardId,
-                        Deck = entity.Deck,
+                        DeckTitle = entity.Deck.DeckTitle,
                         CardTitle = entity.CardTitle,
                         CardDescription = entity.CardDescription,
+                        CategoryTitle = entity.Category.CategoryTitle,
                         CreatedUtc = entity.CreatedUtc,
                         ModifiedUtc = entity.ModifiedUtc
 
@@ -90,7 +107,7 @@ namespace DigiDex.Services
                     new CardDetail
                     {
                         CardId = entity.CardId,
-                        Deck = entity.Deck,
+                        DeckTitle = entity.Deck.DeckTitle,
                         CardTitle = entity.CardTitle,
                         CardDescription = entity.CardDescription,
                         CreatedUtc = entity.CreatedUtc,
