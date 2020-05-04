@@ -89,7 +89,6 @@ namespace DigiDex.Services
                         new DeckDetail
                         {
                             DeckId = entity.DeckId,
-                            CategoryId = 0,
                             Category = none,
                             DeckTitle = entity.DeckTitle,
                             DeckDescription = entity.DeckDescription,
@@ -101,7 +100,6 @@ namespace DigiDex.Services
                     new DeckDetail
                     {
                         DeckId = entity.DeckId,
-                        CategoryId = entity.CategoryId,
                         Category = entity.Category.CategoryTitle,
                         DeckTitle = entity.DeckTitle,
                         DeckDescription = entity.DeckDescription,
@@ -123,8 +121,8 @@ namespace DigiDex.Services
                     {
                         DeckId = e.DeckId,
                         DeckTitle = e.DeckTitle,
-                        DeckDescription = e.DeckDescription,
                         Category = e.Category.CategoryTitle,
+                        DeckDescription = e.DeckDescription,
                         CreatedUtc = e.CreatedUtc,
                         ModifiedUtc = e.ModifiedUtc
                     }
