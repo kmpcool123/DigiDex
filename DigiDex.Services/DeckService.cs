@@ -73,42 +73,7 @@ namespace DigiDex.Services
                 return query.ToArray();
             }
         }
-
-        public DeckDetail GetDeckById(int id)
-        {
-            using (var ctx = new ApplicationDbContext()) 
-            {
-                var entity =
-                    ctx
-                    .Decks
-                    .Single(e => e.DeckId == id && e.UserId == _userId);
-                if(entity.CategoryId == null)
-                {
-                    string none = "None";
-                    return
-                        new DeckDetail
-                        {
-                            DeckId = entity.DeckId,
-                            Category = none,
-                            DeckTitle = entity.DeckTitle,
-                            DeckDescription = entity.DeckDescription,
-                            CreatedUtc = entity.CreatedUtc,
-                            ModifiedUtc = entity.ModifiedUtc
-                        };
-                } else
-                return
-                    new DeckDetail
-                    {
-                        DeckId = entity.DeckId,
-                        Category = entity.Category.CategoryTitle,
-                        DeckTitle = entity.DeckTitle,
-                        DeckDescription = entity.DeckDescription,
-                        CreatedUtc = entity.CreatedUtc,
-                        ModifiedUtc = entity.ModifiedUtc
-                    };
-            }
-        }
-
+        
         public IEnumerable<DeckDetail> GetDeckByTitle(string title)
         {
             using (var ctx = new ApplicationDbContext())
@@ -128,6 +93,27 @@ namespace DigiDex.Services
                     }
                     );
                 return query.ToArray();
+            }
+        }
+
+        public DeckDetail GetDeckById(int id)
+        {
+            using (var ctx = new ApplicationDbContext()) 
+            {
+                var entity =
+                    ctx
+                    .Decks
+                    .Single(e => e.DeckId == id && e.UserId == _userId);
+                return
+                    new DeckDetail
+                    {
+                        DeckId = entity.DeckId,
+                        Category = entity.Category.CategoryTitle,
+                        DeckTitle = entity.DeckTitle,
+                        DeckDescription = entity.DeckDescription,
+                        CreatedUtc = entity.CreatedUtc,
+                        ModifiedUtc = entity.ModifiedUtc
+                    };
             }
         }
 
