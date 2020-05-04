@@ -48,7 +48,10 @@ namespace DigiDex.Services
                                 {
                                     CardId = e.CardId,
                                     CardTitle = e.CardTitle,
-                                    CreatedUtc = e.CreatedUtc
+                                    DeckTitle = e.Deck.DeckTitle,
+                                    CategoryTitle = e.Deck.Category.CategoryTitle,
+                                    CreatedUtc = e.CreatedUtc,
+
                                 }
                         );
 
@@ -64,22 +67,7 @@ namespace DigiDex.Services
                     ctx
                         .Cards
                         .Single(e => e.CardId == id && e.UserId == _userId);
-                if (entity.DeckId == null)
-                {
-                    string none = "None";
-                    return
-                        new CardDetail
-                        {
-                            DeckId = entity.DeckId,
-                            CategoryTitle = entity.Category.CategoryTitle,
-                            DeckTitle = none,
-                            CardTitle = entity.CardTitle,
-                            CardDescription = entity.CardDescription,
-                            CreatedUtc = entity.CreatedUtc,
-                            ModifiedUtc = entity.ModifiedUtc
-                        };
-                }
-                else
+               
                     return
                     new CardDetail
                     {
@@ -87,7 +75,7 @@ namespace DigiDex.Services
                         DeckTitle = entity.Deck.DeckTitle,
                         CardTitle = entity.CardTitle,
                         CardDescription = entity.CardDescription,
-                        CategoryTitle = entity.Category.CategoryTitle,
+                        CategoryTitle = entity.Deck.Category.CategoryTitle,
                         CreatedUtc = entity.CreatedUtc,
                         ModifiedUtc = entity.ModifiedUtc
 
@@ -110,9 +98,11 @@ namespace DigiDex.Services
                         DeckTitle = entity.Deck.DeckTitle,
                         CardTitle = entity.CardTitle,
                         CardDescription = entity.CardDescription,
+                        CategoryTitle = entity.Deck.Category.CategoryTitle,
                         CreatedUtc = entity.CreatedUtc,
                         ModifiedUtc = entity.ModifiedUtc
                     };
+
             }
         }
         public IEnumerable<CardListItem> GetCardsByCategoryTitle(string categoryTitle)
@@ -129,7 +119,8 @@ namespace DigiDex.Services
                                 {
                                     CardId = e.CardId,
                                     CardTitle = e.CardTitle,
-                                    CategoryTitle = e.Category.CategoryTitle,
+                                    CategoryTitle = e.Deck.Category.CategoryTitle,
+                                    
                                     DeckTitle = e.Deck.DeckTitle,
                                     CreatedUtc = e.CreatedUtc
                                 }
@@ -170,6 +161,7 @@ namespace DigiDex.Services
 
                 entity.CardTitle = model.CardTitle;
                 entity.CardDescription = model.CardDescription;
+                entity.DeckId = model.DeckId;
                 entity.ModifiedUtc = DateTimeOffset.UtcNow;
 
                 return ctx.SaveChanges() == 1;

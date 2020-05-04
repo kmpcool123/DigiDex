@@ -15,7 +15,7 @@ namespace DigiDex.Models.Card_Models
         public string CardDescription { get; set; }
         
         public string CategoryTitle { get; set; }
-        public int? DeckId { get; set; }
+        
         public string DeckTitle { get; set; }
 
         [Display(Name = "Created")]
