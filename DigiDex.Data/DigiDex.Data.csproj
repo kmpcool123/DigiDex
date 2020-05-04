@@ -100,10 +100,6 @@
     <Compile Include="Migrations\202005011428061_PuttingCategory.Designer.cs">
       <DependentUpon>202005011428061_PuttingCategory.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202005041730078_fixStuff.cs" />
-    <Compile Include="Migrations\202005041730078_fixStuff.Designer.cs">
-      <DependentUpon>202005041730078_fixStuff.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -120,9 +116,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202005011428061_PuttingCategory.resx">
       <DependentUpon>202005011428061_PuttingCategory.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202005041730078_fixStuff.resx">
-      <DependentUpon>202005041730078_fixStuff.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
