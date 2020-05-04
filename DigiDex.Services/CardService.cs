@@ -98,6 +98,50 @@ namespace DigiDex.Services
                     };
             }
         }
+        public IEnumerable<CardListItem> GetCardsByCategoryTitle(string categoryTitle)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                        .Cards
+                        .Where(e => e.Category.CategoryTitle == categoryTitle && e.UserId == _userId)
+                        .Select(
+                            e =>
+                                new CardListItem
+                                {
+                                    CardId = e.CardId,
+                                    CardTitle = e.CardTitle,
+                                    CategoryTitle = e.Category.CategoryTitle,
+                                    DeckTitle = e.Deck.DeckTitle,
+                                    CreatedUtc = e.CreatedUtc
+                                }
+                               );
+                return query.ToArray();
+            }
+        }
+        public IEnumerable<CardListItem> GetCardsByDeckTitle(string deckTitle)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                        .Cards
+                        .Where(e => e.Deck.DeckTitle == deckTitle && e.UserId == _userId)
+                        .Select(
+                            e =>
+                                new CardListItem
+                                {
+                                    CardId = e.CardId,
+                                    CardTitle = e.CardTitle,
+                                    DeckTitle = e.Deck.DeckTitle,
+                                    CreatedUtc = e.CreatedUtc
+                                }
+                        );
+
+                return query.ToArray();
+            }
+        }
         public bool UpdateCard(CardEdit model)
         {
             using (var ctx= new ApplicationDbContext())

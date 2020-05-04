@@ -10,6 +10,7 @@ namespace DigiDex.Models.Deck_Models
     public class DeckListItem
     {
         public int DeckId { get; set; }
+        [Display(Name ="Title")]
         public string DeckTitle { get; set; }
         public string Category { get; set; }
         [Display(Name = "Created")]
