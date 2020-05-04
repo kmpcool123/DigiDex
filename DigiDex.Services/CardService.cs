@@ -120,7 +120,6 @@ namespace DigiDex.Services
                                     CardId = e.CardId,
                                     CardTitle = e.CardTitle,
                                     CategoryTitle = e.Deck.Category.CategoryTitle,
-                                    
                                     DeckTitle = e.Deck.DeckTitle,
                                     CreatedUtc = e.CreatedUtc
                                 }
@@ -143,6 +142,7 @@ namespace DigiDex.Services
                                     CardId = e.CardId,
                                     CardTitle = e.CardTitle,
                                     DeckTitle = e.Deck.DeckTitle,
+                                    CategoryTitle = e.Deck.Category.CategoryTitle,
                                     CreatedUtc = e.CreatedUtc
                                 }
                         );
