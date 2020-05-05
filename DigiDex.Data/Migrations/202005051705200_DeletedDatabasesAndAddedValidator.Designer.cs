@@ -7,13 +7,13 @@ namespace DigiDex.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.0-30225")]
-    public sealed partial class addDeckId : IMigrationMetadata
+    public sealed partial class DeletedDatabasesAndAddedValidator : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(addDeckId));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(DeletedDatabasesAndAddedValidator));
         
         string IMigrationMetadata.Id
         {
-            get { return "202004301858353_addDeckId"; }
+            get { return "202005051705200_DeletedDatabasesAndAddedValidator"; }
         }
         
         string IMigrationMetadata.Source

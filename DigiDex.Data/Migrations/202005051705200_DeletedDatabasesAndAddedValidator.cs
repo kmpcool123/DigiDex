@@ -3,7 +3,7 @@ namespace DigiDex.Data.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialCreate : DbMigration
+    public partial class DeletedDatabasesAndAddedValidator : DbMigration
     {
         public override void Up()
         {
@@ -19,26 +19,13 @@ namespace DigiDex.Data.Migrations
                         DeckId = c.Int(nullable: false),
                         CreatedUtc = c.DateTimeOffset(nullable: false, precision: 7),
                         ModifiedUtc = c.DateTimeOffset(precision: 7),
+                        Category_CategoryId = c.Int(),
                     })
                 .PrimaryKey(t => t.CardId)
+                .ForeignKey("dbo.Category", t => t.Category_CategoryId)
                 .ForeignKey("dbo.Deck", t => t.DeckId, cascadeDelete: true)
-                .Index(t => t.DeckId);
-            
-            CreateTable(
-                "dbo.Deck",
-                c => new
-                    {
-                        DeckId = c.Int(nullable: false, identity: true),
-                        DeckTitle = c.String(nullable: false),
-                        DeckDescription = c.String(),
-                        CategoryId = c.Int(),
-                        UserId = c.Guid(nullable: false),
-                        CreatedUtc = c.DateTimeOffset(nullable: false, precision: 7),
-                        ModifiedUtc = c.DateTimeOffset(precision: 7),
-                    })
-                .PrimaryKey(t => t.DeckId)
-                .ForeignKey("dbo.Category", t => t.CategoryId)
-                .Index(t => t.CategoryId);
+                .Index(t => t.DeckId)
+                .Index(t => t.Category_CategoryId);
             
             CreateTable(
                 "dbo.Category",
@@ -51,6 +38,22 @@ namespace DigiDex.Data.Migrations
                         ModifiedUtc = c.DateTimeOffset(precision: 7),
                     })
                 .PrimaryKey(t => t.CategoryId);
+            
+            CreateTable(
+                "dbo.Deck",
+                c => new
+                    {
+                        DeckId = c.Int(nullable: false, identity: true),
+                        DeckTitle = c.String(nullable: false),
+                        DeckDescription = c.String(),
+                        CategoryId = c.Int(nullable: false),
+                        UserId = c.Guid(nullable: false),
+                        CreatedUtc = c.DateTimeOffset(nullable: false, precision: 7),
+                        ModifiedUtc = c.DateTimeOffset(precision: 7),
+                    })
+                .PrimaryKey(t => t.DeckId)
+                .ForeignKey("dbo.Category", t => t.CategoryId, cascadeDelete: true)
+                .Index(t => t.CategoryId);
             
             CreateTable(
                 "dbo.IdentityRole",
@@ -132,19 +135,21 @@ namespace DigiDex.Data.Migrations
             DropForeignKey("dbo.IdentityUserRole", "IdentityRole_Id", "dbo.IdentityRole");
             DropForeignKey("dbo.Card", "DeckId", "dbo.Deck");
             DropForeignKey("dbo.Deck", "CategoryId", "dbo.Category");
+            DropForeignKey("dbo.Card", "Category_CategoryId", "dbo.Category");
             DropIndex("dbo.IdentityUserLogin", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.IdentityUserClaim", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.IdentityUserRole", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.IdentityUserRole", new[] { "IdentityRole_Id" });
             DropIndex("dbo.Deck", new[] { "CategoryId" });
+            DropIndex("dbo.Card", new[] { "Category_CategoryId" });
             DropIndex("dbo.Card", new[] { "DeckId" });
             DropTable("dbo.IdentityUserLogin");
             DropTable("dbo.IdentityUserClaim");
             DropTable("dbo.ApplicationUser");
             DropTable("dbo.IdentityUserRole");
             DropTable("dbo.IdentityRole");
-            DropTable("dbo.Category");
             DropTable("dbo.Deck");
+            DropTable("dbo.Category");
             DropTable("dbo.Card");
         }
     }

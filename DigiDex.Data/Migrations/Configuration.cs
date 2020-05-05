@@ -10,7 +10,6 @@ namespace DigiDex.Data.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "DigiDex.Data.ApplicationDbContext";
         }
 
         protected override void Seed(DigiDex.Data.ApplicationDbContext context)
