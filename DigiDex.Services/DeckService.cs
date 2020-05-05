@@ -18,19 +18,39 @@ namespace DigiDex.Services
 
         public bool CreateDeck(DeckCreate model)
         {
-            var entity =
-                new Deck()
+            var result = DeckTitleValidator(model.DeckTitle, model.CategoryId);
+            if (result)
+            {
+                return false;
+            }
+            else
+            {
+                var entity =
+                    new Deck()
+                    {
+                        UserId = _userId,
+                        DeckTitle = model.DeckTitle,
+                        DeckDescription = model.DeckDescription,
+                        CategoryId = model.CategoryId,
+                        CreatedUtc = DateTimeOffset.UtcNow
+                    };
+                using (var ctx = new ApplicationDbContext())
                 {
-                    UserId = _userId,
-                    DeckTitle = model.DeckTitle,
-                    DeckDescription = model.DeckDescription,
-                    CategoryId = model.CategoryId,
-                    CreatedUtc = DateTimeOffset.UtcNow
-                };
+                    ctx.Decks.Add(entity);
+                    return ctx.SaveChanges() == 1;
+                }
+            }
+        }
+        public bool DeckTitleValidator(string deckTitle, int catId)
+        {
             using (var ctx = new ApplicationDbContext())
             {
-                ctx.Decks.Add(entity);
-                return ctx.SaveChanges() == 1;
+                var query = ctx.Decks.Where(e => e.DeckTitle == deckTitle && e.CategoryId == catId && e.UserId == _userId);
+                if (query.Any())
+                {
+                    return true;
+                }
+                return false;
             }
         }
 
