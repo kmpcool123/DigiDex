@@ -88,17 +88,9 @@
     <Compile Include="Category.cs" />
     <Compile Include="Deck.cs" />
     <Compile Include="IdentityModels.cs" />
-    <Compile Include="Migrations\202004301343193_InitialCreate.cs" />
-    <Compile Include="Migrations\202004301343193_InitialCreate.Designer.cs">
-      <DependentUpon>202004301343193_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202004301858353_addDeckId.cs" />
-    <Compile Include="Migrations\202004301858353_addDeckId.Designer.cs">
-      <DependentUpon>202004301858353_addDeckId.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202005011428061_PuttingCategory.cs" />
-    <Compile Include="Migrations\202005011428061_PuttingCategory.Designer.cs">
-      <DependentUpon>202005011428061_PuttingCategory.cs</DependentUpon>
+    <Compile Include="Migrations\202005051705200_DeletedDatabasesAndAddedValidator.cs" />
+    <Compile Include="Migrations\202005051705200_DeletedDatabasesAndAddedValidator.Designer.cs">
+      <DependentUpon>202005051705200_DeletedDatabasesAndAddedValidator.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -108,14 +100,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202004301343193_InitialCreate.resx">
-      <DependentUpon>202004301343193_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004301858353_addDeckId.resx">
-      <DependentUpon>202004301858353_addDeckId.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202005011428061_PuttingCategory.resx">
-      <DependentUpon>202005011428061_PuttingCategory.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202005051705200_DeletedDatabasesAndAddedValidator.resx">
+      <DependentUpon>202005051705200_DeletedDatabasesAndAddedValidator.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

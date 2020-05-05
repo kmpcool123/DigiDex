@@ -16,18 +16,38 @@ namespace DigiDex.Services
             _userId = userId;
         }
 
-        public bool CreateCategory(CategoryCreate model)
+        public bool CategoryTitleValidator(string categoryTitle)
         {
-            var entity = new Category()
-            {
-                UserId = _userId,
-                CategoryTitle = model.CategoryTitle,
-                CreatedUtc = DateTimeOffset.UtcNow
-            };
             using (var ctx = new ApplicationDbContext())
             {
-                ctx.Categories.Add(entity);
-                return ctx.SaveChanges() == 1;
+                var query = ctx.Categories.Where(e => e.CategoryTitle == categoryTitle && e.UserId == _userId);
+                if (query.Any())
+                {
+                    return true;
+                }
+                return false;
+            }
+        }
+        public bool CreateCategory(CategoryCreate model)
+        {
+            var titleValidatorResult = CategoryTitleValidator(model.CategoryTitle);
+            if (titleValidatorResult)
+            {
+                return false;
+            }
+            else
+            {
+                var entity = new Category()
+                {
+                    UserId = _userId,
+                    CategoryTitle = model.CategoryTitle,
+                    CreatedUtc = DateTimeOffset.UtcNow
+                };
+                using (var ctx = new ApplicationDbContext())
+                {
+                    ctx.Categories.Add(entity);
+                    return ctx.SaveChanges() == 1;
+                }
             }
         }
 
@@ -81,6 +101,10 @@ namespace DigiDex.Services
             using(var ctx = new ApplicationDbContext())
             {
                 var entity = ctx.Categories.Single(e => e.CategoryId == model.CategoryId && e.UserId == _userId);
+//
+//if(entity.CategoryId == null)
+                { }
+//
                 entity.CategoryTitle = model.CategoryTitle;
                 entity.ModifiedUtc = DateTimeOffset.UtcNow;
                 return ctx.SaveChanges() == 1;
