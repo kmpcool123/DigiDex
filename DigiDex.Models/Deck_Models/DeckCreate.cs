@@ -18,8 +18,9 @@ namespace DigiDex.Models.Deck_Models
         [MaxLength(800, ErrorMessage ="Deck description is too long; please keep description to less than 800 characters.")]
         [Display(Name ="Description")]
         public string DeckDescription { get; set; }
-
-        public int? CategoryId { get; set; }
+        
+        [Required]
+        public int CategoryId { get; set; }
 
         [Display(Name = "Created")]
         public DateTimeOffset CreatedUtc { get; set; }

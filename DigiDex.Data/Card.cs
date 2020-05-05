@@ -20,12 +20,12 @@ namespace DigiDex.Data
         public string CardDescription { get; set; }
         
         public string CardNumber { get; set; }
-        [ForeignKey("Category")]
-        public int? CategoryId { get; set; }
-        public virtual Category Category { get; set; }
         
+        public virtual Category Category { get; set; }
+
+        [Required]
         [ForeignKey("Deck")]
-        public int? DeckId { get; set; }
+        public int DeckId { get; set; }
         public virtual Deck Deck { get; set; }
         [Required]
         public DateTimeOffset CreatedUtc { get; set; }

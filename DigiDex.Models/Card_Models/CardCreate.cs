@@ -15,7 +15,8 @@ namespace DigiDex.Models.Card_Models
         [MaxLength(300, ErrorMessage = "There are too many characters in this field. Max length 300 characters.")]
 
         public string CardTitle { get; set; }
-        public int? DeckId { get; set; }
+        [Required]
+        public int DeckId { get; set; }
 
         public string CardDescription { get; set; }
         [Display(Name = "Created")]
