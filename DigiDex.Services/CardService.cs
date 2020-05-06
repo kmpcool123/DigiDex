@@ -112,7 +112,7 @@ namespace DigiDex.Services
                 var query =
                     ctx
                         .Cards
-                        .Where(e => e.Category.CategoryTitle == categoryTitle && e.UserId == _userId)
+                        .Where(e => e.Deck.Category.CategoryTitle == categoryTitle && e.UserId == _userId)
                         .Select(
                             e =>
                                 new CardListItem
