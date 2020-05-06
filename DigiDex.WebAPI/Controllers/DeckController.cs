@@ -42,7 +42,7 @@ namespace DigiDex.WebAPI.Controllers
         }
 
         /// <summary>
-        /// Get all existing decks by id.
+        /// Get a single deck by id.
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
@@ -66,7 +66,7 @@ namespace DigiDex.WebAPI.Controllers
         }
 
         /// <summary>
-        /// Get all existing decks by deck name.
+        /// Get all existing decks by a particular title.
         /// </summary>
         /// <param name="title"></param>
         /// <returns></returns>
