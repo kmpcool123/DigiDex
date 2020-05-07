@@ -18,13 +18,23 @@ namespace DigiDex.WebAPI.Controllers
             var categoryService = new CategoryService(userId);
             return categoryService;
         }
+
+        /// <summary>
+        /// Get all existing categories.
+        /// </summary>
+        /// <returns></returns>
         public IHttpActionResult GetAll()
         {
             CategoryService categoryService = CreateCategoryService();
             var categories = categoryService.GetCategories();
             return Ok(categories);
-        }   
+        }
 
+        /// <summary>
+        /// Get a single category by its id.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public IHttpActionResult GetCategoryById(int id)
         {
             CategoryService categoryService = CreateCategoryService();
@@ -32,13 +42,23 @@ namespace DigiDex.WebAPI.Controllers
             return Ok(category);
         }
 
-    public IHttpActionResult GetCategoryByTitle(string categoryTitle)
+        /// <summary>
+        /// Get all existing categories of a particular title
+        /// </summary>
+        /// <param name="categoryTitle"></param>
+        /// <returns></returns>
+        public IHttpActionResult GetCategoryByTitle(string categoryTitle)
         {
             CategoryService categoryService = CreateCategoryService();
             var category = categoryService.GetCategoryByTitle(categoryTitle);
             return Ok(category);
         }
 
+        /// <summary>
+        /// Create a new category.
+        /// </summary>
+        /// <param name="category"></param>
+        /// <returns></returns>
         public IHttpActionResult Post(CategoryCreate category)
         {
             if (!ModelState.IsValid)
@@ -49,7 +69,11 @@ namespace DigiDex.WebAPI.Controllers
             return Ok();
         }
 
-
+        /// <summary>
+        /// Edit a category.
+        /// </summary>
+        /// <param name="category"></param>
+        /// <returns></returns>
         public IHttpActionResult Put(CategoryEdit category)
         {
             if (!ModelState.IsValid)
@@ -60,6 +84,11 @@ namespace DigiDex.WebAPI.Controllers
             return Ok();
         }
 
+        /// <summary>
+        /// Remove a category.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public IHttpActionResult Delete(int id)
         {
             var service = CreateCategoryService();
