@@ -65,7 +65,6 @@ namespace DigiDex.Services
             }
         }
 
-        //Do we need GetCategoryById method? Don't have a CategoryDetail but if we did, would use the same properties as CategoryListItem, so will return that without the IEnumerable
         public CategoryListItem GetCategoryById(int categoryId)
         {
             using (var ctx = new ApplicationDbContext())
