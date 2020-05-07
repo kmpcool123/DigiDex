@@ -507,7 +507,7 @@
         </member>
         <member name="M:DigiDex.WebAPI.Controllers.DeckController.Get(System.Int32)">
             <summary>
-            Get all existing decks by id.
+            Get a single deck by id.
             </summary>
             <param name="id"></param>
             <returns></returns>
@@ -521,7 +521,7 @@
         </member>
         <member name="M:DigiDex.WebAPI.Controllers.DeckController.Get(System.String)">
             <summary>
-            Get all existing decks by deck name.
+            Get all existing decks by a particular title.
             </summary>
             <param name="title"></param>
             <returns></returns>
@@ -535,7 +535,103 @@
         </member>
         <member name="M:DigiDex.WebAPI.Controllers.DeckController.Delete(System.Int32)">
             <summary>
-            Remove a deck
+            Remove a deck.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DigiDex.WebAPI.Controllers.CardController.Get">
+            <summary>
+            Get all existing cards.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DigiDex.WebAPI.Controllers.CardController.Post(DigiDex.Models.Card_Models.CardCreate)">
+            <summary>
+            Create a new card.
+            </summary>
+            <param name="card"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DigiDex.WebAPI.Controllers.CardController.Get(System.Int32)">
+            <summary>
+            Get a single card by its id.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DigiDex.WebAPI.Controllers.CardController.Get(System.String)">
+            <summary>
+            get all existing cards of a particular title.
+            </summary>
+            <param name="cardTitle"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DigiDex.WebAPI.Controllers.CardController.GetByCategory(System.String)">
+            <summary>
+            Get all cards of a particular category.
+            </summary>
+            <param name="category"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DigiDex.WebAPI.Controllers.CardController.GetCardByDeck(System.String)">
+            <summary>
+            Get all cards in a particular deck.
+            </summary>
+            <param name="deck"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DigiDex.WebAPI.Controllers.CardController.Put(DigiDex.Models.Card_Models.CardEdit)">
+            <summary>
+            Edit a card.
+            </summary>
+            <param name="card"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DigiDex.WebAPI.Controllers.CardController.Delete(System.Int32)">
+            <summary>
+            Remove a card.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DigiDex.WebAPI.Controllers.CategoryController.GetAll">
+            <summary>
+            Get all existing categories.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DigiDex.WebAPI.Controllers.CategoryController.GetCategoryById(System.Int32)">
+            <summary>
+            Get a single category by its id.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DigiDex.WebAPI.Controllers.CategoryController.GetCategoryByTitle(System.String)">
+            <summary>
+            Get all existing categories of a particular title
+            </summary>
+            <param name="categoryTitle"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DigiDex.WebAPI.Controllers.CategoryController.Post(DigiDex.Models.Category_Models.CategoryCreate)">
+            <summary>
+            Create a new category.
+            </summary>
+            <param name="category"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DigiDex.WebAPI.Controllers.CategoryController.Put(DigiDex.Models.Category_Models.CategoryEdit)">
+            <summary>
+            Edit a category.
+            </summary>
+            <param name="category"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DigiDex.WebAPI.Controllers.CategoryController.Delete(System.Int32)">
+            <summary>
+            Remove a category.
             </summary>
             <param name="id"></param>
             <returns></returns>
